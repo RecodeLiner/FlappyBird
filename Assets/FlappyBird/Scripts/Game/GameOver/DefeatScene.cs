@@ -2,16 +2,16 @@ using System;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DefeatManager : MonoBehaviour
+public class DefeatScene : MonoBehaviour
 {
     private void OnEnable()
     {
-        DefeatTrigger.DefeatGame += OnDefeat;
+        DefeatEvent.Instance.GameDefeated += OnDefeat;
     }
 
     private void OnDisable()
     {
-        DefeatTrigger.DefeatGame -= OnDefeat;
+        DefeatEvent.Instance.GameDefeated -= OnDefeat;
     }
 
     private void OnDefeat()

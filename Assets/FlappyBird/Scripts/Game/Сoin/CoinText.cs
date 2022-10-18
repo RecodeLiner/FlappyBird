@@ -1,25 +1,25 @@
+using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CoinText : MonoBehaviour
 {
-    private Text _coinText;
+    private TextMeshProUGUI _coinText;
     
     private int _currentCoins = 0; 
 
     private void Awake()
     {
-        _coinText = GetComponent<Text>();
+        _coinText = GetComponent<TextMeshProUGUI>();
     }
 
     private void OnEnable()
     {
-        CoinTrigger.CoinPickUp += OnCoinPickUp; 
+        CoinEvent.Instance.CoinPickUp += OnCoinPickUp; 
     }
 
     private void OnDisable()
     {
-        CoinTrigger.CoinPickUp -= OnCoinPickUp; 
+        CoinEvent.Instance.CoinPickUp -= OnCoinPickUp; 
     }
 
     private void OnCoinPickUp()

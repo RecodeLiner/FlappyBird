@@ -6,6 +6,7 @@ public class Bird : MonoBehaviour
     [SerializeField] private AnimationCurve jumpCurve;
     [SerializeField] private float jumpMultiplier;
     [SerializeField] private float jumpTime;
+    [SerializeField] private float rotateSpeed; 
     
     private Rigidbody2D _rigidbody; 
     
@@ -19,15 +20,12 @@ public class Bird : MonoBehaviour
     private void Update()
     {
         if (Input.GetMouseButtonDown(0))
-            StartJump(); 
+            Jump(); 
+        
+        Rotate();
     }
 
-    private void StartJump()
-    {
-        StartJumpTimer();
-    }
-
-    private void StartJumpTimer()
+    private void Jump()
     {
         float jumpProgres = 0;
         float pasedTime = 0;
@@ -37,13 +35,14 @@ public class Bird : MonoBehaviour
             pasedTime += Time.deltaTime;
             jumpProgres = pasedTime / jumpTime;
 
-            Jump(jumpProgres);
+            var jumpOffset = Vector2.up * jumpCurve.Evaluate(jumpProgres);
+            _rigidbody.velocity = jumpOffset * jumpMultiplier; 
         }
     }
 
-    private void Jump(float jumpProgres)
+    private void Rotate()
     {
-        var jumpOffset = Vector2.up * jumpCurve.Evaluate(jumpProgres);
-        _rigidbody.velocity = jumpOffset * jumpMultiplier; 
+        var newRotation = new Vector3(0, 0, _rigidbody.velocity.y * rotateSpeed);
+        transform.rotation = Quaternion.Euler(newRotation);
     }
 }
