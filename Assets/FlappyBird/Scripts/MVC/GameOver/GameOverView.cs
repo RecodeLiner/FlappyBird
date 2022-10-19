@@ -5,6 +5,7 @@ public class GameOverView : Initable<GameOverModel>
 {
     [SerializeField] private RectTransform gameOverMenu;
     [SerializeField] private GameOverSetup resolver;
+    [SerializeField] private GameObject pauseButton; 
 
     private void Awake()
     {
@@ -24,11 +25,12 @@ public class GameOverView : Initable<GameOverModel>
     private void ShowGameOverMenu()
     {
         gameOverMenu.gameObject.SetActive(true);
+        pauseButton.SetActive(false);
     }
-
+    
     public void RestartGame()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        Time.timeScale = 1; 
+        Time.timeScale = 1;
     }
 }

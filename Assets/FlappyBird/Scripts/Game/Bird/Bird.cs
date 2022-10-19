@@ -8,13 +8,13 @@ public class Bird : MonoBehaviour
     [SerializeField] private float jumpTime;
     [SerializeField] private float rotateAngle; 
     
-    private Rigidbody2D _rigidbody; 
+    private Rigidbody2D _rigidBody; 
     
     private readonly int _maxJumpProgress = 1;
     
     private void Awake() 
     {
-        _rigidbody = GetComponent<Rigidbody2D>();
+        _rigidBody = GetComponent<Rigidbody2D>();
     }
 
     private void Update()
@@ -29,7 +29,7 @@ public class Bird : MonoBehaviour
     {
         float progress = GetCurveProgress();
         Vector2 jumpOffset = Vector2.up * jumpCurve.Evaluate(progress);
-        _rigidbody.velocity = jumpOffset * jumpMultiplier;
+        _rigidBody.velocity = jumpOffset * jumpMultiplier;
     }
 
     private float GetCurveProgress()
@@ -48,7 +48,7 @@ public class Bird : MonoBehaviour
 
     private void Rotate()
     {
-        Vector3 newRotation = new Vector3(0, 0, _rigidbody.velocity.y * rotateAngle);
+        Vector3 newRotation = new Vector3(0, 0, _rigidBody.velocity.y * rotateAngle);
         transform.rotation = Quaternion.Euler(newRotation);
     }
 }
