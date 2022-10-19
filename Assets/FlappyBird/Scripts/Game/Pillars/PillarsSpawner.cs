@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PillarsSpawner : MonoBehaviour
@@ -17,8 +18,8 @@ public class PillarsSpawner : MonoBehaviour
         while(true) 
         {
             yield return new WaitForSeconds(1.5f);
-            GameObject newObject = GetNewSpawnObject(); 
-            Destroy(newObject, destroyTime);   
+            GameObject newObject = GetNewSpawnObject();
+            Destroy(newObject, destroyTime);
         }
     }
 
