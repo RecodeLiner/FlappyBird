@@ -434,26 +434,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: 2.7979634
-      outSlope: 2.7979634
+      inSlope: 4.02618
+      outSlope: 4.02618
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5166657
-      value: 2.4456117
-      inSlope: -0.09647572
-      outSlope: -0.09647572
+      time: 0.4747935
+      value: 2.911604
+      inSlope: 1.4679378
+      outSlope: 1.4679378
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: -2.9909148
-      outSlope: -2.9909148
+      time: 2.2302246
+      value: 0.99765015
+      inSlope: -1.0903041
+      outSlope: -1.0903041
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -461,8 +461,8 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  jumpMultiplier: 3.34
-  jumpTime: 4.03
+  jumpMultiplier: 3.11
+  jumpTime: 4.02
   rotateSpeed: 2.34
 --- !u!50 &742403882
 Rigidbody2D:

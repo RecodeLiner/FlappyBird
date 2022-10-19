@@ -1,5 +1,7 @@
 ﻿using TMPro;
+using UnityEngine;
 
+[RequireComponent(typeof(TextMeshProUGUI))]
 public class CoinTextView : Initable<Coin>
 {
     private TextMeshProUGUI _coinsText;

@@ -10,7 +10,7 @@ public class Bird : MonoBehaviour
     
     private Rigidbody2D _rigidbody; 
     
-    private readonly int _maxJumpProgres = 1;
+    private readonly int _maxJumpProgress = 1;
     
     private void Awake() 
     {
@@ -27,22 +27,28 @@ public class Bird : MonoBehaviour
 
     private void Jump()
     {
+        float progress = GetCurveProgress();
+        Vector2 jumpOffset = Vector2.up * jumpCurve.Evaluate(progress);
+        _rigidbody.velocity = jumpOffset * jumpMultiplier;
+    }
+
+    private float GetCurveProgress()
+    {
         float jumpProgres = 0;
         float pasedTime = 0;
+        
+        pasedTime += Time.deltaTime;
+        jumpProgres = pasedTime / jumpTime;
 
-        while (jumpProgres < _maxJumpProgres)
-        {
-            pasedTime += Time.deltaTime;
-            jumpProgres = pasedTime / jumpTime;
+        if (jumpProgres >= _maxJumpProgress)
+            jumpProgres = 0;
 
-            var jumpOffset = Vector2.up * jumpCurve.Evaluate(jumpProgres);
-            _rigidbody.velocity = jumpOffset * jumpMultiplier; 
-        }
+        return jumpProgres;
     }
 
     private void Rotate()
     {
-        var newRotation = new Vector3(0, 0, _rigidbody.velocity.y * rotateSpeed);
+        Vector3 newRotation = new Vector3(0, 0, _rigidbody.velocity.y * rotateSpeed);
         transform.rotation = Quaternion.Euler(newRotation);
     }
 }
