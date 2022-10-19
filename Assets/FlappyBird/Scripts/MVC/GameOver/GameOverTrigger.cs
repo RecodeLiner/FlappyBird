@@ -2,9 +2,11 @@ using UnityEngine;
 
 public class GameOverTrigger : Initable<GameOverModel>
 {
+    [SerializeField] private GameOverSetup resolver;
+
     private void Awake()
     {
-        Init(GameOverSetup.Model);
+        resolver.Resolve(this);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

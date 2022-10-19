@@ -1,16 +1,17 @@
-using System;
 using UnityEngine;
 
-public class CoinTrigger : Initable<Coin>
+public class ScoreTrigger : Initable<Score>
 {
+    [SerializeField] private ScoreSetup resolver;
+
     private void Awake()
     {
-        Init(CoinSetup.Model);
+        resolver.Resolve(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.GetComponent<Bird>())
-            Model.AddCoin();
+            Model.IncreaseScore();
     }
 }

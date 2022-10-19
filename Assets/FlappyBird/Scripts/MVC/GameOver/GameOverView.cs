@@ -4,10 +4,11 @@ using UnityEngine.SceneManagement;
 public class GameOverView : Initable<GameOverModel>
 {
     [SerializeField] private RectTransform gameOverMenu;
-    
+    [SerializeField] private GameOverSetup resolver;
+
     private void Awake()
     {
-        Init(GameOverSetup.Model);
+        resolver.Resolve(this);
     }
     
     public override void OnInitedEnable()

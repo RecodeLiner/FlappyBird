@@ -6,7 +6,7 @@ public class Bird : MonoBehaviour
     [SerializeField] private AnimationCurve jumpCurve;
     [SerializeField] private float jumpMultiplier;
     [SerializeField] private float jumpTime;
-    [SerializeField] private float rotateSpeed; 
+    [SerializeField] private float rotateAngle; 
     
     private Rigidbody2D _rigidbody; 
     
@@ -48,7 +48,7 @@ public class Bird : MonoBehaviour
 
     private void Rotate()
     {
-        Vector3 newRotation = new Vector3(0, 0, _rigidbody.velocity.y * rotateSpeed);
+        Vector3 newRotation = new Vector3(0, 0, _rigidbody.velocity.y * rotateAngle);
         transform.rotation = Quaternion.Euler(newRotation);
     }
 }

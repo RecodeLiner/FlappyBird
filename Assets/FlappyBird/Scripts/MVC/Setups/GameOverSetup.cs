@@ -1,11 +1,11 @@
 using UnityEngine;
 
 public class GameOverSetup : MonoBehaviour
-{
-    public static GameOverModel Model;
-    
-    private void Awake()
-    {
-        Model = new GameOverModel();
-    }
+{ 
+      private readonly GameOverModel _model = new GameOverModel(); 
+          
+      public void Resolve(Initable<GameOverModel> target)
+      { 
+            target.Init(_model);
+      } 
 }
