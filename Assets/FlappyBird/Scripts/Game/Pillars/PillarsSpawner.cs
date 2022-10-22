@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PillarsSpawner : MonoBehaviour
 {
-    [SerializeField] private GameObject pillarsPrefab;
+    [SerializeField] private Pillars pillars;
     [SerializeField] private float ySpawnPosition;
     [SerializeField] private float destroyTime;
 
@@ -25,7 +25,7 @@ public class PillarsSpawner : MonoBehaviour
     private GameObject GetNewSpawnObject()
     {
         Vector3 spawnPosition = GetSpawnPosition();
-        GameObject newObject = Instantiate(pillarsPrefab, spawnPosition, Quaternion.identity);
+        GameObject newObject = Instantiate(pillars.gameObject, spawnPosition, Quaternion.identity);
 
         return newObject;
     }
