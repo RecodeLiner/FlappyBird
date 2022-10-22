@@ -10,6 +10,6 @@ public class PauseTrigger : Initable<PauseModel>
     }
     public void OnClick()
     {
-        Model.TryPauseGame();
+        Model.PauseButtonClicked();
     }
 }

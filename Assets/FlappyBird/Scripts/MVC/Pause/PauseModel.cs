@@ -7,11 +7,26 @@ public class PauseModel
 
     private bool _isPaused; 
     
-    public void TryPauseGame()
+    public void PauseButtonClicked()
     {
-        _isPaused = _isPaused == false; 
-        Time.timeScale = _isPaused ? 0 : 1;
+        if(!_isPaused)
+        {
+            Pause();
+            return;
+        }
+      
+        Resume(); 
+    }
 
-        GamePaused?.Invoke(_isPaused);
+    private void Pause()
+    {
+        _isPaused = true;
+        Time.timeScale = 0;
+    }
+
+    private void Resume()
+    {
+        _isPaused = false;
+        Time.timeScale = 1;
     }
 }
